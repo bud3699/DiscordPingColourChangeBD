@@ -26,24 +26,49 @@ class ChangeNotifColour {
     }
 
     changeBackground() {
-        const targetElements = document.querySelectorAll('.numberBadge-37OJ3S');
-        const style = document.createElement('style');
+    const targetElement = document.querySelector('.inputDefault-Ciwd-S');
 
-        style.textContent = `
-            .numberBadge-37OJ3S {
-                background-color: rgba(0, 255, 0, 1) !important;
-                color: black !important;
-            }
-        `;
+    const existingStyle = document.querySelector('.changeNotifColour-style');
 
-        document.head.appendChild(style);
+    if (existingStyle) {
+        existingStyle.remove();
     }
+
+    const style = document.createElement('style');
+    style.classList.add('changeNotifColour-style');
+    style.textContent = `
+        .numberBadge-37OJ3S {
+            background-color: rgba(0, 255, 0, 1) !important;
+            color: black !important;
+        }
+
+        .inputDefault-Ciwd-S {
+            background-color: rgba(0, 0, 0, 0.7) !important;
+        }
+    `;
+
+    document.head.appendChild(style);
+    }
+
+
 
     resetBackground() {
         const targetElements = document.querySelectorAll('.numberBadge-37OJ3S');
         const style = document.createElement('style');
+	
+	
+        style.textContent = `
+		.numberBadge-37OJ3S { 
+			background-color: var(--status-danger) !important; 
+			color: white !important;
+		}
 
-        style.textContent = '.numberBadge-37OJ3S { background-color: var(--status-danger) !important; color: white !important;}';
+		.inputDefault-Ciwd-S { 
+			background-color: rgba(30,31,34,255) !important;
+		}
+	`;
+
+	
         document.head.appendChild(style);
     }
 }
